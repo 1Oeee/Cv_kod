@@ -44,37 +44,34 @@
 </div>
 
     <script>
-        function loadIntroContent() {
-    fetch('Intro.html')
-        .then(response => response.ok ? response.text() : Promise.reject('FAIL'))
-        .then(data => {
-            document.getElementById('intro-box').innerHTML = data;
-            scrollToSection('section1'); // Updated to correct id
-        })
-        .catch(error => console.error(error));
-}
-
-function loadJobbContent() {
-    fetch('Jobb.html')
-        .then(response => response.ok ? response.text() : Promise.reject('FAIL'))
-        .then(data => {
-            document.getElementById('job-content').innerHTML = data;
-            scrollToSection('section2');
-        })
-        .catch(error => console.error(error));
-}
-
+        // Function to load Kunskap page content dynamically
 function loadkunskapContent() {
-    fetch('kunskap.html')
-        .then(response => response.ok ? response.text() : Promise.reject('FAIL'))
-        .then(data => {
-            document.getElementById('kunskap-content').innerHTML = data;
-            scrollToSection('section3');
-        })
-        .catch(error => console.error(error));
+  fetch('kunskap.html')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.statusText}`);
+      }
+      return response.text();
+    })
+    .then(data => {
+      const kunskapElement = document.getElementById('kunskap-content');
+      if (kunskapElement) {
+        kunskapElement.innerHTML = data;
+        scrollToSection('section3'); // Scroll after loading
+      } else {
+        console.error("Element with id 'kunskap-content' not found.");
+      }
+    })
+    .catch(error => console.error('Error loading Kunskap content:', error));
 }
 
-
+// Load all content on page load
+document.addEventListener('DOMContentLoaded', () => {
+  window.scrollTo(0, 0);
+  loadIntroContent();
+  loadJobbContent();
+  loadkunskapContent();
+});
     </script>
 </body>
 </html>
