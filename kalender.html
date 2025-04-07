@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Embedded Outlook Calendar</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
+    }
+
+    iframe {
+      border: none;
+      width: 90%;
+      height: 700px;
+      max-width: 1200px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      margin: 20px 0;
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Outlook Calendar</h1>
+  <iframe 
+    src="https://outlook.office365.com/owa/calendar/f393fb08c8fa4a30b308ff73435ecd94@itcentrum.se/7aa5ff88de5e46dcbce30c68d2b6346410733938544215978630/calendar.html" 
+    scrolling="no">
+  </iframe>
+</body>
+</html>
